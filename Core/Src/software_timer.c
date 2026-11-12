@@ -36,7 +36,7 @@ void initTimers(void) {
 	 }
  }
 
- void timerRun(void){
+ void timer_run(void){
 	 for (int i = 0; i < MAX_TIMERS; ++i){
 		 if (timer_allocated[i] == 1 && timer_counters[i] > 0){
 			 timer_counters[i]--;
