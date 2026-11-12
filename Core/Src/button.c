@@ -28,7 +28,7 @@ static uint16_t counterForButtonPress1s[NO_OF_BUTTONS] = {0, 0, 0};
 void button_reading(void) {
     for (uint8_t i = 0; i < NO_OF_BUTTONS; i++) {
         debounceBuffer2[i] = debounceBuffer1[i];
-        debounceBuffer1[i] = HAL_GPIO_ReadPin(btn_port[i], btn_pin[i]);
+        debounceBuffer1[i] = HAL_GPIO_ReadPin(buttonPort[i], buttonPin[i]);
 
         if (debounceBuffer1[i] == debounceBuffer2[i]) {
             if (buttonBuffer[i] != debounceBuffer1[i]) {
@@ -53,7 +53,7 @@ void button_reading(void) {
     }
 }
 
-uint8_t isButtonPressed(uint8_t index) {
+uint8_t is_button_pressed(uint8_t index) {
     if (index >= NO_OF_BUTTONS) return 0;
     if (button_flag[index] == 1) {
         button_flag[index] = 0;
@@ -62,7 +62,7 @@ uint8_t isButtonPressed(uint8_t index) {
     return 0;
 }
 
-uint8_t isButtonPressed1s(uint8_t index) {
+uint8_t is_button_pressed_1s(uint8_t index) {
     if (index >= NO_OF_BUTTONS) return 0;
     if (button_flag_1s[index] == 1) {
         button_flag_1s[index] = 0;

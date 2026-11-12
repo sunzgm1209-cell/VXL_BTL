@@ -25,7 +25,13 @@
 #include "scheduler.h"
 #include "software_timer.h"
 #include "button.h"
-#include <stdio.h>
+#include "traffic_light.h"
+#include "lcd.h"
+#include "dht20.h"
+#include "global.h"
+#include "fsm_automatic.h"
+#include "fsm_manual.h"
+#include "fsm_tuning.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,7 +73,13 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN 0 */
 void Task_10ms(void){
 	timer_run();
-	button_reading;
+	button_reading();
+}
+
+void Task_FSM(void) {
+    fsm_automatic_run();
+    fsm_manual_run();
+    fsm_tuning_run();
 }
 /* USER CODE END 0 */
 
@@ -104,7 +116,15 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
+  initTimers();
+  global_init();
+  lcd_init();
+  dht20_init();
+
   SCH_Init();
+  SCH_Add_Task(Task_10ms, 0, 10);
+  SCH_Add_Task(Task_FSM, 0, 10);
+  SCH_Add_Task(dht20_task_run, 100, 1000);
 
   /* USER CODE END 2 */
 

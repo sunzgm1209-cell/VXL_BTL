@@ -4,7 +4,7 @@
  *  Created on: Nov 13, 2026
  *      Author: ASUS
  */
-#include "fsm_manual.c"
+#include "fsm_manual.h"
 
 static void man_update_lcd(const char* state_str) {
     lcd_set_cursor(0, 0);

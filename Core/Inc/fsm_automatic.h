@@ -9,6 +9,10 @@
 #define INC_FSM_AUTOMATIC_H_
 
 #include "global.h"
+#include "software_timer.h"
+#include "traffic_light.h"
+#include "lcd.h"
+#include "button.h"
 
 void fsm_automatic_run(void);
 

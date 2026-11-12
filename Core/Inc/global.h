@@ -8,6 +8,8 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
+#include "software_timer.h"
+
 typedef enum {
     INIT = 0,
 
