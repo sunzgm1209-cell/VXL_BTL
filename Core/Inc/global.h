@@ -11,20 +11,20 @@
 typedef enum {
     INIT = 0,
 
-    /* Chế độ Tự động (Automatic) */
+
     AUTO_RED1_GREEN2,
     AUTO_RED1_AMBER2,
     AUTO_GREEN1_RED2,
     AUTO_AMBER1_RED2,
 
-    /* Chế độ Bằng tay (Manual) */
+
     MAN_INIT,
     MAN_RED1_GREEN2,
     MAN_RED1_AMBER2,
     MAN_GREEN1_RED2,
     MAN_AMBER1_RED2,
 
-    /* Chế độ Chỉnh thời gian (Tuning) */
+
     TUN_INIT,
     TUN_RED,
     TUN_AMBER,
