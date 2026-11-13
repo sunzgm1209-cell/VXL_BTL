@@ -10,7 +10,10 @@
 
 #include "main.h"
 
-#define DHT20_I2C_ADDR  (0x38 << 1)
+#define SLAVE_ADDRESS_DHT20 (0x38 << 1)
+
+extern uint16_t dht20_humidity_x10;
+extern int16_t  dht20_temperature_x10;
 
 void dht20_init(void);
 void dht20_task_run(void);

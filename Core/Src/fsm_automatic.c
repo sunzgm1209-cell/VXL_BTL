@@ -6,20 +6,21 @@
  */
 #include "fsm_automatic.h"
 
-static void auto_update_lcd(void){
-	lcd_set_cursor(0, 0);
-	lcd_print_str("AUTO  T1:");
-	lcd_print_num_2d(countdown1);
-	lcd_print_str(" T2:");
-	lcd_print_num_2d(countdown2);
+static void auto_update_lcd(void) {
+    uint16_t temp_disp = (dht20_temperature_x10 < 0) ? 0 : (uint16_t)dht20_temperature_x10;
 
+    lcd_set_cursor(0, 0);
+    lcd_print_str("AUTO  T1:");
+    lcd_print_num_2d(countdown1);
+    lcd_print_str(" T2:");
+    lcd_print_num_2d(countdown2);
 
-	lcd_set_cursor(1, 0);
-	lcd_print_str("T:");
-	lcd_print_num_2d((int)env_temp);
-	lcd_print_str("C  H:");
-	lcd_print_num_2d((int)env_humi);
-	lcd_print_str("%   ");
+    lcd_set_cursor(1, 0);
+    lcd_print_str("T:");
+    lcd_print_num_x10(temp_disp);
+    lcd_print_str("C H:");
+    lcd_print_num_x10(dht20_humidity_x10);
+    lcd_print_str("% ");
 }
 
 void fsm_automatic_run(void) {
