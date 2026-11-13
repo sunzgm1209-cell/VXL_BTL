@@ -48,4 +48,4 @@ Mã nguồn được tổ chức theo kiến trúc phân lớp rõ ràng, tách 
 │   │   └── fsm_tuning.h        # Máy trạng thái chế độ Chỉnh thời gian
 │   └── Src/
 │       └── ...                 # Các file hiện thực (.c) tương ứng
-└── <Ten_Project>.ioc           # File cấu hình vi điều khiển STM32CubeMX
+└── BTL_VXL.ioc                 # File cấu hình vi điều khiển STM32CubeMX
