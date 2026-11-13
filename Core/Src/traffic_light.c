@@ -8,9 +8,9 @@
 
 static const GPIO_PinState LIGHT_CODE[4][2] = {
     {GPIO_PIN_RESET, GPIO_PIN_RESET}, // 00: LIGHT_OFF
-    {GPIO_PIN_SET,   GPIO_PIN_RESET}, // 10: LIGHT_RED
-    {GPIO_PIN_RESET, GPIO_PIN_SET},   // 01: LIGHT_AMBER
-    {GPIO_PIN_SET,   GPIO_PIN_SET}    // 11: LIGHT_GREEN
+	{GPIO_PIN_SET,   GPIO_PIN_SET},   // 11: LIGHT_RED
+	{GPIO_PIN_RESET, GPIO_PIN_SET},   // 01: LIGHT_AMBER
+	{GPIO_PIN_SET,   GPIO_PIN_RESET}  // 11: LIGHT_GREEN
 };
 
 void traffic_set(uint8_t road, LightState_t state) {
