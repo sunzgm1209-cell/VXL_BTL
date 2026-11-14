@@ -15,7 +15,7 @@
 extern uint16_t dht20_humidity_x10;
 extern int16_t  dht20_temperature_x10;
 
-void dht20_init(void);
+void dht20_init(void);   
 void dht20_task_run(void);
 
 #endif /* INC_DHT20_H_ */
